@@ -3,8 +3,8 @@
 class Toolbox < Formula
   desc "CLI your AI can keep extending: Lua commands and a key vault"
   homepage "https://github.com/WilliamThogersen/toolbox"
-  url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.2.0/toolbox-macos.tar.gz"
-  sha256 "c2c9cfd5059de80d9c9f025f9bffe9fe48637f4b52b1839fb038670e8772141c"
+  url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.3.0/toolbox-macos.tar.gz"
+  sha256 "7f007299eb0091e6bac4d17a81497e3cd7f36a8c3225a9c9b1db1b915700a171"
   license "MIT"
 
   depends_on :macos
