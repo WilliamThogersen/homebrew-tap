@@ -3,16 +3,39 @@
 class Toolbox < Formula
   desc "CLI your AI can keep extending: Lua commands and a key vault"
   homepage "https://github.com/WilliamThogersen/toolbox"
-  url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.4.1/toolbox-macos.tar.gz"
-  sha256 "631808648f3114c8440f1c1ce1e19f7d4e2f855be04bf1e519c0d7f680d7bed9"
   license "MIT"
 
-  depends_on :macos
+  # `brew audit --strict` refuses url and sha256 directly in on_macos, so the universal
+  # macOS binary is listed once per architecture.
+  on_macos do
+    on_arm do
+      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.5.0/toolbox-macos.tar.gz"
+      sha256 "6ddd1b8b6ae9ba2c3c852681beb45c703266c5d3c4088a0941e5b7c2f38596ed"
+    end
+    on_intel do
+      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.5.0/toolbox-macos.tar.gz"
+      sha256 "6ddd1b8b6ae9ba2c3c852681beb45c703266c5d3c4088a0941e5b7c2f38596ed"
+    end
+  end
+
+  # Static binaries: they need no system libraries, whatever the distribution.
+  on_linux do
+    on_arm do
+      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.5.0/toolbox-linux-arm64.tar.gz"
+      sha256 "fd5074171e2c712e9a7a16b554626f4304f49bea6b5ba41aeba8f576d5727247"
+    end
+    on_intel do
+      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.5.0/toolbox-linux-x86_64.tar.gz"
+      sha256 "8fe41507c54ae54957da01333d9a8b3e31fc99ef551b2b3571a6029690d4a44c"
+    end
+  end
 
   def install
     bin.install "toolbox"
-    # Keep Gatekeeper from blocking the binary if the download was quarantined. Fine if there is nothing to remove.
-    quiet_system "/usr/bin/xattr", "-d", "com.apple.quarantine", bin/"toolbox"
+    if OS.mac?
+      # Keep Gatekeeper from blocking the binary if the download was quarantined. Fine if there is nothing to remove.
+      quiet_system "/usr/bin/xattr", "-d", "com.apple.quarantine", bin/"toolbox"
+    end
     # A symlink, not a copy: the keychain sees one signed binary, so it only asks once.
     bin.install_symlink "toolbox" => "tb"
   end
