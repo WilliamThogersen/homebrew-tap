@@ -9,24 +9,24 @@ class Toolbox < Formula
   # macOS binary is listed once per architecture.
   on_macos do
     on_arm do
-      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.7.0/toolbox-macos.tar.gz"
-      sha256 "85b07273b34b2a4fbf223fb8b31800b9122d27a4033d6a85db2ef92e544f7771"
+      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.8.0/toolbox-macos.tar.gz"
+      sha256 "a4e22ed62eb0fa105c3c495ea9d224489eccc3dfc343b69b6d7ddcf3accf1244"
     end
     on_intel do
-      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.7.0/toolbox-macos.tar.gz"
-      sha256 "85b07273b34b2a4fbf223fb8b31800b9122d27a4033d6a85db2ef92e544f7771"
+      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.8.0/toolbox-macos.tar.gz"
+      sha256 "a4e22ed62eb0fa105c3c495ea9d224489eccc3dfc343b69b6d7ddcf3accf1244"
     end
   end
 
   # Static binaries: they need no system libraries, whatever the distribution.
   on_linux do
     on_arm do
-      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.7.0/toolbox-linux-arm64.tar.gz"
-      sha256 "d1001a779c009fa7ff5df55464e6e76bd782a1ff64ece767f6265b73edf86ba7"
+      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.8.0/toolbox-linux-arm64.tar.gz"
+      sha256 "21a53a63cd2a099d3813b54ff13525dd4496e5cc17c5d45873b2559b6cf61d10"
     end
     on_intel do
-      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.7.0/toolbox-linux-x86_64.tar.gz"
-      sha256 "b687f0cb80701d3998ffe84a367cdf9d78b8ee3f8a4a205023994e1a86844aa8"
+      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.8.0/toolbox-linux-x86_64.tar.gz"
+      sha256 "beb017a697b34ec8e91a32f17690143c59e08938607964bfef9941810c1b444f"
     end
   end
 
