@@ -5,37 +5,16 @@ class Toolbox < Formula
   homepage "https://github.com/WilliamThogersen/toolbox"
   license "MIT"
 
-  # `brew audit --strict` refuses url and sha256 directly in on_macos, so the universal
-  # macOS binary is listed once per architecture.
-  on_macos do
-    on_arm do
-      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.8.0/toolbox-macos.tar.gz"
-      sha256 "a4e22ed62eb0fa105c3c495ea9d224489eccc3dfc343b69b6d7ddcf3accf1244"
-    end
-    on_intel do
-      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.8.0/toolbox-macos.tar.gz"
-      sha256 "a4e22ed62eb0fa105c3c495ea9d224489eccc3dfc343b69b6d7ddcf3accf1244"
-    end
-  end
+  # One universal binary for Apple Silicon and Intel.
+  url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.9.0/toolbox-macos.tar.gz"
+  sha256 "b73d0d109c093e5a5faef919a5c7d597f627f6dd9bf034d061b9a15d2ab2bb5a"
 
-  # Static binaries: they need no system libraries, whatever the distribution.
-  on_linux do
-    on_arm do
-      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.8.0/toolbox-linux-arm64.tar.gz"
-      sha256 "21a53a63cd2a099d3813b54ff13525dd4496e5cc17c5d45873b2559b6cf61d10"
-    end
-    on_intel do
-      url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.8.0/toolbox-linux-x86_64.tar.gz"
-      sha256 "beb017a697b34ec8e91a32f17690143c59e08938607964bfef9941810c1b444f"
-    end
-  end
+  depends_on :macos
 
   def install
     bin.install "toolbox"
-    if OS.mac?
-      # Keep Gatekeeper from blocking the binary if the download was quarantined. Fine if there is nothing to remove.
-      quiet_system "/usr/bin/xattr", "-d", "com.apple.quarantine", bin/"toolbox"
-    end
+    # Keep Gatekeeper from blocking the binary if the download was quarantined. Fine if there is nothing to remove.
+    quiet_system "/usr/bin/xattr", "-d", "com.apple.quarantine", bin/"toolbox"
     # A symlink, not a copy: the keychain sees one signed binary, so it only asks once.
     bin.install_symlink "toolbox" => "tb"
   end
