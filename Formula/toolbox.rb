@@ -6,8 +6,8 @@ class Toolbox < Formula
   license "MIT"
 
   # One universal binary for Apple Silicon and Intel.
-  url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.9.0/toolbox-macos.tar.gz"
-  sha256 "b73d0d109c093e5a5faef919a5c7d597f627f6dd9bf034d061b9a15d2ab2bb5a"
+  url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.10.0/toolbox-macos.tar.gz"
+  sha256 "79ee816fdee436ec8331a9b0cb16b818d0440cda3af0dc898ef49f44e4333ca2"
 
   depends_on :macos
 
