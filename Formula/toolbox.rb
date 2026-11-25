@@ -4,8 +4,8 @@ class Toolbox < Formula
   desc "CLI your AI can keep extending: Lua commands and a key vault"
   homepage "https://github.com/WilliamThogersen/toolbox"
   # One universal binary for Apple Silicon and Intel.
-  url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.10.0/toolbox-macos.tar.gz"
-  sha256 "79ee816fdee436ec8331a9b0cb16b818d0440cda3af0dc898ef49f44e4333ca2"
+  url "https://github.com/WilliamThogersen/toolbox/releases/download/v0.11.0/toolbox-macos.tar.gz"
+  sha256 "3c5ee81080856f4f1d8a9b8fcda1b809df31dafc76e9933595a8ecf10c143ac8"
   license "MIT"
 
   depends_on :macos
